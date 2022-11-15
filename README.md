@@ -1,2 +1,2 @@
-# movie_rental
-Projekt strony wypożyczalni filmów
+# Projekt strony wypożyczalni filmów
+
