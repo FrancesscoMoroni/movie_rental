@@ -37,7 +37,8 @@ public class MovieRental implements Serializable {
 	private User user;
 
 	//bi-directional many-to-one association to MovieRentalHasFilm
-	@OneToMany(mappedBy="movieRental")
+	@OneToMany(mappedBy="movieRental",
+			cascade = CascadeType.ALL)
 	private List<MovieRentalHasFilm> movieRentalHasFilms;
 
 	public MovieRental() {

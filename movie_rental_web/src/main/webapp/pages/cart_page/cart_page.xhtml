@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/user-template.xhtml">
+
+	<ui:define name="title">
+		#{txtCart.title}
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form id="cart">
+	        <p:dataTable id="table" var="film" value="#{cartBB.movieRentalHasFilms}" rows="10"
+	                     paginator="true" paginatorPosition="both"
+	                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+	                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+	                     rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+	
+	            <p:column headerText="#{txtCart.name}">
+	                <h:outputText value="#{film.getFilms().getName()}" />
+	            </p:column>
+	
+	            <p:column headerText="#{txtCart.price}">
+	                <h:outputText value="#{film.price}" />
+	            </p:column>
+				
+	            <p:column>
+	                <p:commandButton icon="pi pi-trash" actionListener="#{cartBB.removeItem(film)}" process="@this" update="cart:table"></p:commandButton>
+	            </p:column>
+	
+	        </p:dataTable>
+	    </h:form>
+	    <br />
+	    <h:form id="price" style="display: flex">
+		    <a id="menu" style="margin-left: auto;">
+		    	<h style="margin-right: 19px;">#{cartBB.price}</h>
+			    <p:commandButton value="#{txtCart.toCheckout}" actionListener="#{cartBB.confirmeCart()}" process="@this" update="cart:table, price"></p:commandButton>
+			</a>
+	    </h:form>
+	    
+	</ui:define>
+
+</ui:composition>
+</html>

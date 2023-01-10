@@ -30,6 +30,12 @@ public class User implements Serializable {
 
 	public User() {
 	}
+	
+	public User(String login, String pass, String role) {
+		this.setLogin(login);
+		this.setPassword(pass);
+		this.setRole(role);
+	}
 
 	public int getIdusers() {
 		return this.idusers;

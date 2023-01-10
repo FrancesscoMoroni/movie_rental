@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.3"
+          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+<application>
+ <resource-bundle>
+  <base-name>resources.textCart</base-name>
+  <var>txtCart</var>
+ </resource-bundle>
+ <resource-bundle>
+  <base-name>resources.textLogin</base-name>
+  <var>txtLogin</var>
+ </resource-bundle>
+ <resource-bundle>
+  <base-name>resources.textMain</base-name>
+  <var>txtMain</var>
+ </resource-bundle>
+ <resource-bundle>
+  <base-name>resources.textMenu</base-name>
+  <var>txtMenu</var>
+ </resource-bundle>
+ <resource-bundle>
+  <base-name>resources.textRegister</base-name>
+  <var>txtRegister</var>
+ </resource-bundle>
+ <resource-bundle>
+  <base-name>resources.textUserProfile</base-name>
+  <var>txtUserProfile</var>
+ </resource-bundle>
+ <locale-config>
+  <default-locale>pl</default-locale>
+ </locale-config>
+</application>
+</faces-config>

@@ -16,8 +16,9 @@ import java.util.List;
 public class Film implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private FilmPK id;
+	@Id
+	@Column(name="idfilms")
+	private int id;
 
 	private byte archival;
 
@@ -55,11 +56,11 @@ public class Film implements Serializable {
 	public Film() {
 	}
 
-	public FilmPK getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(FilmPK id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

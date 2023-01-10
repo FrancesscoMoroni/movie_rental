@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/user-template.xhtml">
+
+	<ui:define name="title">
+		#{txtUserProfile.title}: #{historyBB.user.getLogin()}
+	</ui:define>
+
+	<ui:define name="content">
+		<p>#{txtUserProfile.orderHistory}</p>
+		<h:form id="history">
+	        <p:dataTable id="table" var="rental" value="#{historyBB.lazyMovieRental}" rows="10"
+	                     paginator="true"
+	                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+	                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+	                     rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+	
+	            <p:column headerText="ID">
+	                <h:outputText value="#{rental.getIdmovieRental()}" />
+	            </p:column>
+	            
+	            <p:column headerText="#{txtUserProfile.rentalDate}">
+	                <h:outputText value="#{rental.getRentalDate()}" />
+	            </p:column>
+	
+	            <p:column headerText="#{txtUserProfile.returnDate}">
+	                <h:outputText value="#{rental.getReturnDate()}" />
+	            </p:column>
+	            
+	            <p:column headerText="#{txtUserProfile.price}">
+	                <h:outputText value="#{historyBB.rentalCost(rental)}" />
+	            </p:column>
+				
+	        </p:dataTable>
+	    </h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

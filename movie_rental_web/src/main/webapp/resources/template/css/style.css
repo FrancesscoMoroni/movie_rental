@@ -1,0 +1,39 @@
+body{
+	font-family: 'Century Gothic',helvetica,verdana,arial;
+	background: url("../img/background.jpg.xhtml?ln=template") no-repeat center center fixed;
+	background-size: cover;
+	margin:0;
+}
+
+.ui-datascroller-content {
+    border: none !important;
+    background: none !important;
+}
+
+.ui-datascroller .ui-datascroller-item {
+    width: 25%;
+    display: inline-block;
+}
+
+.bottom-space{
+	margin-bottom: 2em;
+}
+
+.top-space{
+	margin-top: 1em;
+}
+
+.box{
+	padding: 1em;
+	border-radius: 3px;
+	background-color: #fff;
+}
+
+#page_wrapper{
+	margin: 1em;
+	min-width: 700px;
+}
+
+#footer{
+	text-align: center;
+}

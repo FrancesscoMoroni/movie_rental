@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/login-template.xhtml">
+
+	<ui:define name="title">
+		Logowanie użytkownika
+	</ui:define>
+
+	<ui:define name="content">
+	
+		<h:form>
+				<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+					<h:outputLabel for="login" value="#{txtLogin.login}:" />
+					<h:inputText id="login" value="#{loginBB.login}" required="true" requiredMessage="#{txtLogin.noLogin}"/>
+					<h:outputLabel for="pass" value="#{txtLogin.password}:" />
+					<h:inputSecret id="pass" value="#{loginBB.pass}" required="true" requiredMessage="#{txtLogin.noPassword}"/>
+				</h:panelGrid>
+			
+				<h:messages />
+			
+				<h:commandButton value="#{txtLogin.signIn}" action="#{loginBB.doLogin()}" update="msg" />
+		</h:form>
+		<br></br>
+		<p:linkButton outcome="/pages/register_page/register_page" value="#{txtLogin.createAccount}" style="margin-right:20px;"></p:linkButton>
+	
+	</ui:define>
+
+</ui:composition>
+</html>

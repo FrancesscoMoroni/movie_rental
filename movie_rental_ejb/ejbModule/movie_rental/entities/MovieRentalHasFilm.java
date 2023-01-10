@@ -14,28 +14,26 @@ import javax.persistence.*;
 public class MovieRentalHasFilm implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId
-	private MovieRentalHasFilmPK id;
+	@Id
+	@Column(name="idmovie_rental_has_films")
+	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="movie_rental_idmovie_rental", insertable=false, updatable=false)
+	@JoinColumn(name="movie_rental_idmovie_rental")
 	private MovieRental movieRental;
 	
 	
 	@ManyToOne
-		@JoinColumns({
-		@JoinColumn(name="films_idfilms", insertable=false, updatable=false),
-		@JoinColumn(name="directors_iddirectors", insertable=false, updatable=false)
-	})
+	@JoinColumn(name="films_idfilms")
 	private Film film;
 	
 	private float price;
 	
-	public MovieRentalHasFilmPK getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(MovieRentalHasFilmPK id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
